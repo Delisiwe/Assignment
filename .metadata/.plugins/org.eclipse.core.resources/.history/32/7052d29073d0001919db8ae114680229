@@ -1,0 +1,26 @@
+package service;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import entities.EmployeeEntity;
+
+/**
+ * Session Bean implementation class EmployeeEJB
+ */
+@Stateless
+@LocalBean
+public class EmployeeEJB implements java.io.Serializable{
+
+
+	@PersistenceContext
+	private EntityManager em;
+	
+    
+    
+    
+
+}

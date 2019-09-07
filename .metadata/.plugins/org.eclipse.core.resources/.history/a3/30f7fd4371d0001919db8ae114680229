@@ -1,0 +1,51 @@
+package service;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import entities.EmployeeEntity;
+/**
+ * Session Bean implementation class EmployeeEJB
+ */
+@Stateless
+@LocalBean
+public class EmployeeEJB {
+
+@PersistenceContext
+private EntityManager em;	
+ublic EmployeeEJB() {
+       
+}
+    
+@Id
+private String name;
+private Date dateOfBirth;
+private String SurName; 
+@OneToOne(mappedBy="employees") 
+private Bed bed;
+    
+
+@Column(name="NAME")
+public String getName() {
+        return name;
+}
+public void setName(String name) {
+        this.name = name;
+}
+@Column(name="dateOfBirth")
+public Date dateOfBirth() {
+return dateOfBirth;
+}
+public void setBirthday(Date dateOfBirth) {
+this.birthday =dateOfBirth;
+}
+@Column(name="SurName")
+public String SurName() {
+return SurName;
+}
+ public void setSurName(String SurName) {
+this.SurName=SurName;
+}
+   
+
+}

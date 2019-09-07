@@ -1,0 +1,79 @@
+package service;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+import org.jboss.resteasy.spi.Link;
+
+import com.sun.scenario.effect.light.Light;
+
+import entities.EmployeeEntity;
+
+/**
+ * Session Bean implementation class EmployeeEJB
+ */
+@Stateless
+@LocalBean
+public class EmployeeEJB {
+
+
+	@PersistenceContext
+	private EntityManager em;
+	
+    public EmployeeEJB() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public void addNew(EmployeeEntity employeeEntity)
+    {
+    	System.out.println("============================");
+    	System.out.println(employeeEntity.getName());
+    	em.persist(employeeEntity);
+    	System.out.println("============================");
+    }
+    
+    
+    public <employeeEntity> Light FindAllEmployees(String ID)
+    {
+    	EntityManagerFactory Factory = Persistence.createEntityManagerFactory(ID);
+    	
+    	Object EntityManager = Factory.createEntityManager();
+    	((javax.persistence.EntityManager) EntityManager).getTransaction().begin();
+    	
+    	Object LinkListemployees;
+		LinkListemployees.((EntityManager) EntityManager).createQuery("select * from employees").getResultList();
+    	
+    	((javax.persistence.EntityManager) EntityManager).getTransaction().commit();
+    	((javax.persistence.EntityManager) EntityManager).close();
+    	Factory.close();
+    	
+    	
+    	if (LinkListemployees ==null)
+    		
+    	{
+    		System.out.println("no employees found.");
+    		
+    	}
+    	
+    	else
+    	{
+    		Object employeeEntity;
+			for (EmployeeEntity employeeEntity1:LinkListemployees)
+    			
+    		{
+    			
+    			System.out.printf("Employee name = " + employeeEntity1.getName()
+    			+ "Surname " + employeeEntity1.getSurName() + ",Date of birth ="+ employeeEntity1.getDateOfBirth());
+    			
+    		}
+    		
+    	}
+    	
+    }
+    
+
+}

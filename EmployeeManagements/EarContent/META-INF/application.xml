@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" id="Application_ID" version="7">
+  <display-name>EmployeeManagements</display-name>
+  <module>
+    <ejb>backend.jar</ejb>
+  </module>
+  <module>
+    <web>
+      <web-uri>frontend.war</web-uri>
+      <context-root>frontend</context-root>
+    </web>
+  </module>
+  <module>
+    <web>
+      <web-uri>frontends.war</web-uri>
+      <context-root>frontends</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>backends.jar</ejb>
+  </module>
+</application>
